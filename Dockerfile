@@ -9,4 +9,4 @@ RUN apt-get update -y && apt-get upgrade -y && \
     chmod +x /*.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/run.sh"]
+CMD ["mongod", "--auth"]
