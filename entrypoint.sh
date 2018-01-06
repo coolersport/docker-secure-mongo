@@ -29,6 +29,7 @@ mongo admin --eval "\
 # Create the database and dbuser
 if [ "$MONGODB_APPLICATION_DATABASE" != "admin" ]; then
 	mongo $MONGODB_APPLICATION_DATABASE --eval "\
+            db.dropAllUsers();\
 	    db.createUser({user: '$MONGODB_APPLICATION_USER', pwd: '$MONGODB_APPLICATION_PASS', roles:[{role:'dbOwner', db:'$MONGODB_APPLICATION_DATABASE'}]});"
 fi
 # shut down unauth instance
