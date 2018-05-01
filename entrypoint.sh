@@ -2,7 +2,7 @@
 
 cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-if [[ ! -n "$REPLICA_KEY" ]]; then
+if [[ -n "$REPLICA_KEY" ]]; then
     echo $REPLICA_KEY > /etc/replica.key
     chmod 400 /etc/replica.key
     chown mongodb:mongodb /etc/replica.key
